@@ -28,8 +28,9 @@ test_y = test_data[0:,0]
 
 # parameters
 looped = False
-alpha_man = 0.0001
-layer_man = 100
+solver = 'adam' # solvers ('adam', 'sgd', or 'lbfgs')
+alpha_man = 0.0001 # learning rate
+layer_man = 100 # neurons in hidden layers
 alpha_table = [0.1, 0.01, 0.001, 0.0001]
 layer_table = []
 for i in range(10,310,10):
@@ -43,7 +44,7 @@ if looped == True:
     for alpha in alpha_table:
         for layer in layer_table:
             # Multi-Layer Perceptron
-            clf = MLPClassifier(solver='adam',alpha=0.0001,
+            clf = MLPClassifier(solver=solver,alpha=0.0001,
                                 learning_rate_init=alpha,
                                 hidden_layer_sizes=(layer, ),
                                 random_state=None)
@@ -73,7 +74,7 @@ if looped == True:
     
 else:
     # Multi-Layer Perceptron
-    clf = MLPClassifier(solver='adam',alpha=0.0001,
+    clf = MLPClassifier(solver=solver,alpha=0.0001,
                         learning_rate_init=alpha_man,
                         hidden_layer_sizes=(layer_man, ),
                         random_state=None)
