@@ -43,10 +43,10 @@ train_X, test_X, train_y, test_y = train_test_split(data_X, data_y,
 
 # parameters
 looped = False
-solver = 'lbfgs'
-alpha = 0.0001
-learning_rate_man = 0.0001
-layers_man = 100
+solver = 'lbfgs' # solver ('adam', 'sgd', or 'lbfgs')
+alpha = 0.0001 # alpha
+learning_rate_man = 0.0001 # learning rate
+layers_man = 100 # neurons in hidden layers
 learning_rate_table = [0.1, 0.01, 0.001, 0.0001]
 layers_table = []
 for i in range(10,310,10):
@@ -132,10 +132,10 @@ else:
     # testing
     
     # Single image test
-    test_elem = 200
-    noise_amp = 5
+    test_elem = 200 # tested element
+    noise_amp = 5 # noise amplitude
     print("actual value: ", test_y[test_elem])
-    print("W/OUT NOISE")
+    print("W/OUT NOISE") # test with no noise
     print("predicted value: ", clf.predict( [test_X[test_elem]] )[0])
     relative_error = 100*(clf.predict( [test_X[test_elem]]) - test_y[test_elem])/test_y[test_elem]
     print("Relative error: ", relative_error[0], "%")
@@ -143,7 +143,7 @@ else:
     for i in range(0,24):
         test_X[test_elem][i] = test_X[test_elem][i] + noise_amp*(random() - 0.5)
     
-    print("W/ NOISE")
+    print("W/ NOISE") # test with noise
     print("predicted value: ", clf.predict( [test_X[test_elem]] )[0])
 
     
