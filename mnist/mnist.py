@@ -26,8 +26,8 @@ test_y = train_data[21000:,0]
 
 # parameters
 looped = True
-alpha_man = 0.0001
-layer_man = 100
+alpha_man = 0.0001 # alpha
+layer_man = 100 # layers
 alpha_table = [0.1, 0.01, 0.001, 0.0001]
 layer_table = []
 for i in range(10,310,10):
